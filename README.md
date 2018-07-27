@@ -1,6 +1,6 @@
 # CF7 Email Domain Filter
 
-The CF7 Email Domain Filter plugin is an add-on to Contact Form 7
+The CF7 Email Domain Filter plugin is an add-on to [Contact Form 7](https://contactform7.com/)
 
 With the CF7 Email Domain Filter you can limit the which email domains you want a response from.
 
