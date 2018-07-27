@@ -16,13 +16,13 @@ With the CF7 Email Domain Filter you can limit the which email domains you want 
 a) As a plugin
 
 1. Fork the repo
-1. Edit cf7-email-domain-filter.php and change the `$email_filter_domains` array.
+1. Edit cf7-email-domain-filter.php and change the [`$email_filter_domains`](cf7-email-domain-filter.php#L28-L48) array.
 1. Uppload the changed repo to wp-content/plugins
 
 b) In your (child) theme
 
-1. Copy everything below `namespace Soderlind\CF7\Email\Filter;` and save it in your (child) theme functions.php
-1. Change the `$email_filter_domains` array.
+1. Copy everything below [`namespace Soderlind\CF7\Email\Filter;`](cf7-email-domain-filter.php#L26-L71) and save it in your (child) theme functions.php
+1. Change the [`$email_filter_domains`](cf7-email-domain-filter.php#L28-L48) array.
 
 ## Usage
 
