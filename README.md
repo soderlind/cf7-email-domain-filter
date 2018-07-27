@@ -28,6 +28,12 @@ b) In your (child) theme
 
 Add class `domainfilter` to the email tag, eg: `[email your-email class:domainfilter]`
 
+## Roadmap
+
+- 0.0.1 Front-end validator (can be bypassed)
+- 0.0.2 Back-end validator
+- 0.0.3 Admin / settings page
+
 ## Credits
 
 [Awesomplete](https://leaverou.github.io/awesomplete/) is Copyright (c) 2015 Lea Verou
