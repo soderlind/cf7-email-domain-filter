@@ -11,7 +11,7 @@
  * Plugin URI: https://github.com/soderlind/cf7-email-domain-filter
  * GitHub Plugin URI: https://github.com/soderlind/cf7-email-domain-filter
  * Description: With the CF7 Email Domain Filter you can limit the which email domains you want a response from.
- * Version:     0.0.1
+ * Version:     0.0.2
  * Author:      Per Soderlind
  * Author URI:  https://soderlind.no
  * Text Domain: cf7-email-domain-filter
@@ -48,6 +48,8 @@ $email_filter_domains = [
 ];
 
 add_action( 'wpcf7_enqueue_scripts', __NAMESPACE__ . '\on_wpcf7_enqueue_scripts' );
+add_filter( 'wpcf7_validate_email*', __NAMESPACE__ . '\email_domain_validation_filter', 20, 2 );
+add_filter( 'wpcf7_validate_email', __NAMESPACE__ . '\email_domain_validation_filter', 20, 2 );
 
 function on_wpcf7_enqueue_scripts() {
 	global $email_filter_domains;
@@ -68,5 +70,30 @@ function on_wpcf7_enqueue_scripts() {
 	});
 EOSCRIPT;
 	wp_add_inline_script( 'awesomplete-js', $script );
+}
+
+
+/**
+ * Check if the email domain is a valid one.
+ *
+ * @param WPCF7_Validation $result
+ * @param WPCF7_FormTag $tag
+ * @return $result
+ */
+function email_domain_validation_filter( $result, $tag ) {
+	global $email_filter_domains;
+
+	if ( in_array( 'class:domainfilter', $tag->options ) ) {
+		$your_email = isset( $_POST[ $tag->name ] ) ? sanitize_email( $_POST[ $tag->name ] ) : '';
+		if ( '' != $your_email ) {
+			list( $local, $your_email_domain ) = explode( '@', $your_email, 2 );
+
+			if ( ! in_array( $your_email_domain, $email_filter_domains ) ) {
+				$result->invalidate( $tag, sprintf( __( 'Valid domains are: %s', 'cf7-email-domain-filter' ), implode( ' ,', $email_filter_domains ) ) );
+			}
+		}
+	}
+
+	return $result;
 }
 

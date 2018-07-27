@@ -30,8 +30,8 @@ Add class `domainfilter` to the email tag, eg: `[email your-email class:domainfi
 
 ## Roadmap
 
-- 0.0.1 Front-end validation (can be bypassed)
-- 0.0.2 Back-end validation
+- 0.0.1 ~~Front-end validation (can be bypassed)~~
+- 0.0.2 ~~Back-end validation~~
 - 0.0.3 Admin / settings page
 
 ## Credits
