@@ -21,7 +21,7 @@ a) As a plugin
 
 b) In your (child) theme
 
-1. Copy everything below [`namespace Soderlind\CF7\Email\Filter;`](cf7-email-domain-filter.php#L26-L71) and save it in your (child) theme functions.php
+1. Copy everything below [`namespace Soderlind\CF7\Email\Filter;`](cf7-email-domain-filter.php#L26-L999) and save it in your (child) theme functions.php
 1. Change the [`$email_filter_domains`](cf7-email-domain-filter.php#L28-L48) array.
 
 ## Usage
